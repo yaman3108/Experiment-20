@@ -12,7 +12,7 @@ Vs Code, Github
 
 ## Theory:
 
-Selection Sort is a simple comparison-based sorting algorithm used to arrange elements in a list in a specified order (ascending or descending). It divides the array into a sorted and an unsorted region, and iteratively selects the smallest (or largest, depending on the sorting order) element from the unsorted region, then swaps it with the first element of the unsorted region, expanding the sorted region by one element.
+Selection Sort is a simple comparison-based sorting algorithm used to arrange elements in a list in a specified order. It divides the array into a sorted and an unsorted region, and iteratively selects the smallest (or largest, depending on the sorting order) element from the unsorted region, then swaps it with the first element of the unsorted region, expanding the sorted region by one element.
 
 ### Basic operations:
 1: Enqueue: Adds an element to the end (rear) of the queue.
