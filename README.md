@@ -82,52 +82,51 @@ The algorithm continues to iterate through the array until no swaps are needed, 
 #include <iostream>
 using namespace std;
 
-void swap (int *a, int *b)
-{
-  int temp;
-  temp = *a;
-  *a = *b;
-  *b = temp;
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
-void s_sort(int *a, int el)
-{
-  int n = 0;
-  int *b;
-
-  while (n != el)
-    {
-      b = a + 1;
-      for(int i = 0; i <(el-1) - n; i++)
-        {
-          if(*a>*b)
-          {
-            swap(a,b);
-          }
+void s_sort(int *a, int el) {
+    for (int i = 0; i < el - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < el; j++) {
+            if (a[j] < a[minIndex]) {
+                minIndex = j;
+            }
+        }
+        if (minIndex != i) {
+            swap(&a[i], &a[minIndex]);
         }
     }
 }
-int main()
-{
-  int nel;
-  int a[nel];
-  cout<< "No. of elements: ";
-  cin>>nel;
-  for(int i = 0; i < nel; i++)
-    {
-      cin>>a[i];
+
+int main() {
+    int nel;
+    cout << "No. of elements: ";
+    cin >> nel;
+    int a[nel]; // Declare array after reading the size
+
+    cout << "Enter the elements: " << endl;
+    for (int i = 0; i < nel; i++) {
+        cin >> a[i];
     }
-  cout<<"Sorted array: "<<endl;
-  sort(&a[0], nel);
-  for(int i = 0; i < nel; i++)
-    {
-      cout<<a[i]<<" ";
+
+    s_sort(a, nel); // Sort the array
+
+    cout << "Sorted array: " << endl;
+    for (int i = 0; i < nel; i++) {
+        cout << a[i] << " ";
     }
-  return 0;
+    cout << endl;
+
+    return 0;
 }
+
 ```
 ### Output:
-<img width="1040" alt="Screenshot 2024-10-21 at 2 01 51 PM" src="https://github.com/user-attachments/assets/f03e0305-e294-4343-85de-1122a211920b">
+<img width="1089" alt="Screenshot 2024-10-22 at 1 52 53 PM" src="https://github.com/user-attachments/assets/c5557df8-84fb-408e-a6e2-781907d9ee34">
 
 
 ### Insertion sort:
@@ -168,7 +167,7 @@ int main() {
 }
 ```
 ### Output:
-
+<img width="1102" alt="Screenshot 2024-10-22 at 1 54 08 PM" src="https://github.com/user-attachments/assets/f54957d3-3703-43a8-a3be-8cabd7c8ccc6">
 
 ### Bubble sort:
 ```
@@ -210,8 +209,8 @@ int main(){
 }
 ```
 ### output:
-
+<img width="1079" alt="Screenshot 2024-10-22 at 1 55 03 PM" src="https://github.com/user-attachments/assets/36047824-99d3-49b7-984f-92cc021e782a">
 
 
 ## Conclusion:
-This program helps us understand how queue can be implemented using arrays. We learnt the different commands/keywords used in queue such as push, pop and peek.
+This program helps us understand how different types of sorting work in C++. The sorting techniques weve used in these programs are selection sort, insertion sort and bubble sort.
