@@ -32,6 +32,7 @@ The process is repeated until the entire array is sorted.
 5.Continue this process until the entire array is sorted.
 
 
+
 ## Insertion sort:
 
 Insertion Sort is a simple comparison-based sorting algorithm that builds the final sorted array one element at a time. The algorithm works by taking one element from the unsorted part of the array and inserting it into its correct position in the sorted part.
@@ -50,6 +51,7 @@ Elements are shifted to make room for the element being inserted if needed.
 2.Compare the current element with the elements in the sorted portion and shift larger elements to the right.
 3.Insert the current element at the correct position in the sorted portion.
 4.Repeat the process for all elements until the entire array is sorted.
+
 
 
 ## Bubble sort:
