@@ -77,74 +77,140 @@ The algorithm continues to iterate through the array until no swaps are needed, 
 
 ## Code:
 
-### Stack using array: 
+### Selection sort: 
 ```
-#include<iostream>
+#include <iostream>
 using namespace std;
-#define size 5
-#define ERROR -9999
 
-class Queue{
-    int rear, front, ar[size];
-    public:
-    Queue(){
-        rear= -1;
-        front=-1;
-        ar[0]=0;
-    }
-    void enqueue(int);
-    int dequeue();
-    void disp();
-};
-void Queue::enqueue(int num){
-    if(rear==(size+1)){
-        cout<<"Queue is full"<<endl;
-    }
-    else{
-        if(front==-1){
-            ar[++front]=num;
-            rear++;
-        }
-        else{
-            ar[++rear]=num;
-        }
-    }
-}
-int Queue::dequeue(){
-    if(front==-1||front==(rear+1)){
-        cout<<"Queue is empty"<<endl;
-        return ERROR;
-    }
-    else{
-        int val=ar[front++];
-        return val;
-    }
-}
-void Queue::disp(){
-    if(front==-1||front==(rear+1)){
-        cout<<"Queue is empty"<<endl;
-        return;
-    }
-    else{
-        int i=front;
-        while(i!=(rear+1)){
-            cout<<ar[i]<<"  ";
-            i++;
-        }
-    }
+void swap (int *a, int *b)
+{
+  int temp;
+  temp = *a;
+  *a = *b;
+  *b = temp;
 }
 
-int main(){
-    Queue q1;
-    q1.enqueue(4);
-    q1.enqueue(8);
-    q1.enqueue(3);
-    int val=q1.dequeue();
-    cout<<val<<endl;
-    q1.disp();
+void s_sort(int *a, int el)
+{
+  int n = 0;
+  int *b;
+
+  while (n != el)
+    {
+      b = a + 1;
+      for(int i = 0; i <(el-1) - n; i++)
+        {
+          if(*a>*b)
+          {
+            swap(a,b);
+          }
+        }
+    }
+}
+int main()
+{
+  int nel;
+  int a[nel];
+  cout<< "No. of elements: ";
+  cin>>nel;
+  for(int i = 0; i < nel; i++)
+    {
+      cin>>a[i];
+    }
+  cout<<"Sorted array: "<<endl;
+  sort(&a[0], nel);
+  for(int i = 0; i < nel; i++)
+    {
+      cout<<a[i]<<" ";
+    }
+  return 0;
+}
 ```
 ### Output:
 <img width="1040" alt="Screenshot 2024-10-21 at 2 01 51 PM" src="https://github.com/user-attachments/assets/f03e0305-e294-4343-85de-1122a211920b">
+
+
+### Insertion sort:
+```
+#include <iostream>
+using namespace std;
+ 
+void insertionSort(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+ 
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+}
+ 
+int main() {
+    int arr[] = {64, 25, 12, 22, 11};
+    int n = sizeof(arr) / sizeof(arr[0]);
+ 
+    cout << "Original array: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+ 
+    insertionSort(arr, n);
+ 
+    cout << "\nSorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+ 
+    return 0;
+}
+```
+### Output:
+
+
+### Bubble sort:
+```
+#include<iostream>
+using namespace std;
+ 
+void swap(int* a,int* b){
+    int temp;
+    temp=*a;
+    *a=*b;
+    *b=temp;
+}
+int main(){
+    int elements;
+    cout<<"How many elements in the array? :";
+    cin>>elements;
+    int array[elements];
+    cout<<"Enter elements:";
+    for(int i=0;i<elements;i++){
+        cin>>array[i];
+    }
+    for(int i=0;i<elements;i++){
+        cout<<array[i]<<" ";
+    }
+    int n=0;
+    while(n!=elements){
+        for(int i=0;i<elements-n;i++){
+            if(array[i]>array[i+1]){
+                swap(&array[i],&array[i+1]);
+            }
+        }
+        n++;
+    }
+    cout<<"\nSorted array is:"<<endl;
+    for(int i=0;i<elements;i++){
+        cout<<array[i]<<" ";
+    }
+    return 0;
+}
+```
+### output:
+
 
 
 ## Conclusion:
